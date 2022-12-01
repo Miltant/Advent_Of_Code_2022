@@ -27,6 +27,6 @@
     
     console.table({
         "Max calories carried by one Elf": max_elf,
-        "Three biggest amount of calories carried": top3_elves.reduce((acc, cur) => acc + cur, 0)
+        "Sum of the three biggest amounts of calories carried": top3_elves.reduce((acc, cur) => acc + cur, 0)
     })
 }
