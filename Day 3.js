@@ -1,3 +1,19 @@
+// the following function is from https://www.npmjs.com/package/array-unflat 
+const unflat = (arr, size = 2) => {
+	const newArr = [];
+	const newLen = arr.length / size;
+
+	for (var i = 0; i < newLen; i++) {
+		const group = [];
+		for (let j = 0; j < size; j++) {
+			group.push(arr[i * size + j]);
+		}
+		newArr.push(group);
+	}
+	return newArr;
+};
+
+
 {
 	const input = document.querySelector('pre').innerText.split('\n').filter(l => l !== '')
 
@@ -22,9 +38,7 @@
 		return acc + priority_of(intersection)
 	}, 0)
 
-	const groups_of_three = input.map((val, index) => input.slice(index * 3, index * 3 + 3))
-
-	const sum_for_groups = groups_of_three.reduce((acc, cur) => {
+	const sum_for_groups = unflat(input, 3).reduce((acc, cur) => {
 		const first_two_intersection = [...cur[0]].filter(item => cur[1].includes(item))
 		const intersection = [...cur[2]].find(item => first_two_intersection.includes(item))
 
