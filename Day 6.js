@@ -10,9 +10,9 @@
 	}
 	
 	const find_first_repeated_slice = (text, length) => {
-    let i = length - 2
+		let i = length - 2
 		do ++i
-    while (has_repeats(text.slice(i - length + 1, i + 1)))
+		while (has_repeats(text.slice(i - length + 1, i + 1)))
 
 		return i + 1
 	}
