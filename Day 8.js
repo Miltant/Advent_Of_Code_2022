@@ -1,6 +1,6 @@
 {
-  const input = document.querySelector('pre').innerText.split('\n').filter(l => l !== '')
-  const trees = input.map(l => [...l].map(t => ({ height: ~~t, visible: false })))
+	const input = document.querySelector('pre').innerText.split('\n').filter(l => l !== '')
+	const trees = input.map(l => [...l].map(t => ({ height: ~~t, visible: false })))
 	
 	let r = -1
 	let c = -1
@@ -79,7 +79,7 @@
 
 	const forest = trees.flat()
 
-  console.table({
+  	console.table({
 		'Sum of the smallest directories': forest.filter(t => t.visible).length,
 		'Highest visibility score': Math.max(...forest.map(t => t.score))
 	})
