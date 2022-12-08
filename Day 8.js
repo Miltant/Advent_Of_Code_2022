@@ -12,8 +12,7 @@
 				c = -1,
 				++r < forest.length
 			),
-			next_column: () => ++c < forest[0].length,
-			visibility: 0
+			next_column: () => ++c < forest[0].length
 		},
 		{
 			init: () => r = c = -1,
@@ -21,8 +20,7 @@
 				r = -1,
 				++c < forest[0].length
 			),
-			next_column: () => ++r < forest.length,
-			visibility: 0
+			next_column: () => ++r < forest.length
 		},
 		{
 			init: () => { r = forest.length; c = forest[0].length },
@@ -30,8 +28,7 @@
 				c = forest[0].length,
 				--r > -1
 			),
-			next_column: () => --c > -1,
-			visibility: 0
+			next_column: () => --c > -1
 		},
 		{
 			init: () => { r = forest.length; c = forest[0].length },
@@ -39,8 +36,7 @@
 				r = forest.length,
 				--c > -1
 			),
-			next_column: () => --r > -1,
-			visibility: 0
+			next_column: () => --r > -1
 		}
 	]
 	
@@ -61,25 +57,24 @@
 
 	forest.forEach((line, i) => line.forEach((t, j) => {
 		t.score = directions_factory().reduce((acc, d) => {
-			let last_height = -1
 			r = i
 			c = j
+			let visibility = 0
 			
 			while (d.next_column()) {
-				++d.visibility
+				++visibility
 
-				if (forest[r][c].height < t.height)
-					last_height = forest[r][c].height
-				else break
+				if (forest[r][c].height >= t.height)
+					break
 			}
-
-			return acc * d.visibility
+			
+			return acc * visibility
 		}, 1)
 	}))
 
 	const trees = forest.flat()
 
-  	console.table({
+  console.table({
 		'Sum of the smallest directories': trees.filter(t => t.visible).length,
 		'Highest visibility score': Math.max(...trees.map(t => t.score))
 	})
