@@ -74,7 +74,7 @@
 
 	const trees = forest.flat()
 
-  console.table({
+	console.table({
 		'Sum of the smallest directories': trees.filter(t => t.visible).length,
 		'Highest visibility score': Math.max(...trees.map(t => t.score))
 	})
