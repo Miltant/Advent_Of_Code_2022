@@ -44,6 +44,10 @@
 
 			this.visited_cells = [new Vec2(0, 0)]
 		}
+		visit (vec) {
+			if (this.visited_cells.findIndex(c => c.is(vec)) === -1)
+				this.visited_cells.push(vec)
+		}
 		move_head (vec) {
 			const unit = vec.normalized
 			
@@ -56,9 +60,9 @@
 					if (rope.modulus > 1) {
 						this.knots_position[i] = this.knots_position[i].add(rope.normalized)
 						
+						// if it's the tail end
 						if (i === number_of_knots - 1)
-							if (this.visited_cells.findIndex( c => c.is(this.knots_position[i]) ) === -1)
-								this.visited_cells.push(this.knots_position[i])
+							this.visit(this.knots_position[i])
 					}
 				}
 			}
