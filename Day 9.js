@@ -44,14 +44,14 @@
 
 			this.visited_cells = [new Vec2(0, 0)]
 		}
-		visit (vec) {
-			if (this.visited_cells.findIndex(c => c.is(vec)) === -1)
-				this.visited_cells.push(vec)
+		visit (pos) {
+			if (this.visited_cells.findIndex(c => c.is(pos)) === -1)
+				this.visited_cells.push(pos)
 		}
-		move_head (vec) {
-			const unit = vec.normalized
+		move_head (pos) {
+			const unit = pos.normalized
 			
-			for (let _ = unit_vec.zero; _.modulus < vec.modulus; _ = _.add(unit)) {
+			for (let _ = unit_vec.zero; _.modulus < pos.modulus; _ = _.add(unit)) {
 				this.knots_position[0] = this.knots_position[0].add(unit)
 				
 				for (let i = 1; i < number_of_knots; ++i) {
@@ -74,6 +74,7 @@
 
 	input.forEach(l => {
 		if (l === '') return
+
 		let command = l.split(' ')
 		board.move_head(unit_vec[command[0]].times(~~command[1]))
 	})
