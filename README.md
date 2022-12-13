@@ -15,5 +15,7 @@ pie showData title Distribution of Lines of Code used per Day
          "Day 9" : 83
          "Day 10" : 16
          "Day 11" : 93
+         "Day 12" : 98
+         "Day 13" : 45
 ```
 (I will make a proper bar chart on the last day 🙂)
