@@ -41,7 +41,7 @@
   }, 1)
   
   console.table({
-    'Sum of unordered paris indexes': sum_of_unordered_pairs_index,
+    'Sum of unordered pairs indexes': sum_of_unordered_pairs_index,
     'Decoder key': decoder_key
   })
 }
