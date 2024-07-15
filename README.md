@@ -19,3 +19,4 @@ pie showData title Distribution of Lines of Code used per Day
          "Day 13" : 45
 ```
 (I will make a proper bar chart on the last day 🙂)
+(current status: I was part of a database training program in December 2022 and I didn't manage to stick to AoC as it was already pretty intensive. But I might pick it up where I left it as a warmup for AoC 2024!)
